@@ -29,7 +29,8 @@ public class LancamentoController {
         carregarLancamentos(model);
         model.addAttribute("novoLancamento", new Lancamento());
         model.addAttribute("tipos", TipoLancamento.values());
-        // Garante que o objeto exista para o parser do Thymeleaf na carga inicial da página.
+        // Garante que o objeto exista para o parser do Thymeleaf na carga inicial da
+        // página.
         model.addAttribute("lancamentoParaEditar", new Lancamento());
         return "index";
     }
@@ -60,7 +61,8 @@ public class LancamentoController {
     }
 
     @PutMapping("/lancamentos/{id}")
-    public String updateLancamento(@PathVariable Long id, @ModelAttribute Lancamento lancamentoAtualizado, Model model) {
+    public String updateLancamento(@PathVariable Long id, @ModelAttribute Lancamento lancamentoAtualizado,
+            Model model) {
         Optional<Lancamento> lancamentoOpt = lancamentoRepository.findById(id);
         if (lancamentoOpt.isPresent()) {
             Lancamento lancamentoExistente = lancamentoOpt.get();
