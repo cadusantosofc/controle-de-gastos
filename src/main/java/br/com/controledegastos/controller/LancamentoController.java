@@ -60,6 +60,12 @@ public class LancamentoController {
         return "index :: lista-lancamentos";
     }
 
+    @GetMapping("/lancamentos")
+    public String listarLancamentos(Model model) {
+        carregarLancamentos(model);
+        return "index :: lista-lancamentos";
+    }
+
     @PutMapping("/lancamentos/{id}")
     public String updateLancamento(@PathVariable Long id, @ModelAttribute Lancamento lancamentoAtualizado,
             Model model) {
